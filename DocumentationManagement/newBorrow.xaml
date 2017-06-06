@@ -1,0 +1,105 @@
+﻿<Window x:Class="DocumentationManagement.newBorrow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="newBorrow" Height="698" Width="798.5" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" FontSize="14">
+    <Grid x:Name="NewBorrow" Margin="20" RenderTransformOrigin="0.507,0.443">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="20" ShadowDepth="0"/>
+        </Grid.Effect>
+        <Grid.Background>
+            <ImageBrush ImageSource="lib/asd.png"/>
+        </Grid.Background>
+        <GroupBox x:Name="groupBox1" Header="Location" HorizontalAlignment="Left" Margin="462,284,0,0" VerticalAlignment="Top" Height="201" Width="258" FontSize="15" FontWeight="Bold" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" BorderThickness="0.7"/>
+        <GroupBox x:Name="gbSubmission" Header="Submission" HorizontalAlignment="Left" Margin="462,56,0,0" VerticalAlignment="Top" Height="223" Width="258" FontSize="15" FontWeight="Bold" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" BorderThickness="0.7"/>
+        <GroupBox x:Name="groupBox2" Header="Details" HorizontalAlignment="Left" Margin="42,56,0,0" VerticalAlignment="Top" Height="429" Width="266" FontWeight="Bold" FontSize="15" BorderThickness="0.7" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+        <Label x:Name="kapat" MouseUp="kapat_MouseUp" Content="X" Margin="0,7,15,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Black" Cursor="Hand" FontWeight="Bold" HorizontalAlignment="Right" Width="30" Background="#FFC3D69B">
+            <Label.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="0"/>
+            </Label.Effect>
+        </Label>
+        <Grid  MouseDown="Grid_MouseDown" HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="703">
+            <Grid.Background>
+                <ImageBrush/>
+            </Grid.Background>
+            <Label Content="Add a Document" HorizontalAlignment="Left" Margin="75,4,0,0" VerticalAlignment="Top" Width="286" FontSize="16">
+                <Label.Background>
+                    <ImageBrush/>
+                </Label.Background>
+            </Label>
+        </Grid>
+        <Label Content="Document Number :" HorizontalAlignment="Left" Margin="44,78,0,0" VerticalAlignment="Top"/>
+        <Label Content="Date :" HorizontalAlignment="Left" Margin="44,121,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.683,2.231"/>
+        <TextBox x:Name="txtDocNo" HorizontalAlignment="Left" Height="23" Margin="179,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="30" LostFocus="txtDocNo_LostFocus"/>
+        <Grid x:Name="btnSave" Height="38" Margin="306,606,307,0" VerticalAlignment="Top" MouseUp="btnSave_MouseUp" Cursor="Hand">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="0"/>
+            </Grid.Effect>
+            <Grid.Background>
+                <ImageBrush ImageSource="lib/btn5.png" Stretch="Uniform"/>
+            </Grid.Background>
+            <Label x:Name="txtSave" Content="Save" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Width="85" HorizontalContentAlignment="Center" Height="32" FontFamily="Verdana" FontSize="15" FontWeight="Bold"/>
+        </Grid>
+        <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Height="23" Margin="179,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="txtTitle_LostFocus" MaxLength="150"/>
+        <ComboBox x:Name="txtClass" HorizontalAlignment="Left" Height="23" Margin="179,217,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" TextBoxBase.TextChanged="txtClass_TextChanged" LostFocus="txtClass_LostFocus" IsTextSearchEnabled="False"/>
+        <ComboBox x:Name="txtType" HorizontalAlignment="Left" Height="23" Margin="179,262,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" TextBoxBase.TextChanged="txtType_TextChanged"  LostFocus="txtType_LostFocus" IsTextSearchEnabled="False"/>
+        <DatePicker x:Name="dtpDate" HorizontalAlignment="Left" Margin="179,123,0,0" VerticalAlignment="Top" Height="24" Width="120" SelectedDateFormat="Short" LostFocus="dtpDate_LostFocus" PreviewTextInput="dtpDate_PreviewTextInput" />
+        <Label x:Name="label" Content="Title :" HorizontalAlignment="Left" Margin="44,171,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Class :" HorizontalAlignment="Left" Margin="44,213,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="Type :" HorizontalAlignment="Left" Margin="44,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.368,-0.885"/>
+        <Label x:Name="label3" Content="State :" HorizontalAlignment="Left" Margin="44,306,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtAuthor" HorizontalAlignment="Left" Height="23" Margin="179,404,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="250"/>
+        <Label x:Name="label4" Content="Author :" HorizontalAlignment="Left" Margin="44,400,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label5" Content="Status :" HorizontalAlignment="Left" Margin="44,352,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.684,0.077"/>
+        <TextBox x:Name="txtReplied" HorizontalAlignment="Left" Height="23" Margin="179,452,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="30"/>
+        <Label x:Name="label6" Content="Replied Document No" HorizontalAlignment="Left" Margin="44,448,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.395,0.231" FontSize="13"/>
+        <Label x:Name="label7" Content="Description :" HorizontalAlignment="Left" Margin="44,496,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDesc" HorizontalAlignment="Left" Height="89" Margin="179,500,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="321" MaxLength="1000"/>
+        <ComboBox x:Name="cmbState" HorizontalAlignment="Left" Margin="179,310,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
+            <ComboBoxItem Content="Physical"/>
+            <ComboBoxItem Content="Digital"/>
+            <ComboBoxItem/>
+        </ComboBox>
+        <ComboBox x:Name="cmbStatus" HorizontalAlignment="Left" Margin="179,354,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
+            <ComboBoxItem Content="Received"/>
+            <ComboBoxItem Content="Submitted"/>
+        </ComboBox>
+        <Label x:Name="lblSubDate" Content="Submission Date :" HorizontalAlignment="Left" Margin="462,82,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblSubBy" Content="Submitted By :" HorizontalAlignment="Left" Margin="462,122,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblSubTo" Content="Submitted To: " HorizontalAlignment="Left" Margin="462,162,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,2.731"/>
+        <Label x:Name="lblSurBra" Content="Submitter Branch :" HorizontalAlignment="Left" Margin="462,202,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblSudBra" Content="Submitted Branch :" HorizontalAlignment="Left" Margin="462,242,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dtpSubmission" HorizontalAlignment="Left" Margin="590,84,0,0" VerticalAlignment="Top" LostFocus="dtpSubmission_LostFocus" PreviewTextInput="dtpSubmission_PreviewTextInput"/>
+        <TextBox x:Name="txtSubBy" HorizontalAlignment="Left" Height="23" Margin="590,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="txtSubBy_LostFocus" MaxLength="50"/>
+        <TextBox x:Name="txtSubTo" HorizontalAlignment="Left" Height="23" Margin="590,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="txtSubTo_LostFocus" MaxLength="50"/>
+        <TextBox x:Name="txtSurBra" HorizontalAlignment="Left" Height="23" Margin="590,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="txtSurBra_LostFocus" MaxLength="50"/>
+        <TextBox x:Name="txtSudBra" HorizontalAlignment="Left" Height="23" Margin="590,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="txtSudBra_LostFocus" MaxLength="50"/>
+        <Label x:Name="label9" Content="Shelf No :" HorizontalAlignment="Left" Margin="462,352,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label10" Content="Borrower :" HorizontalAlignment="Left" Margin="462,448,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.632,0.5"/>
+        <Label x:Name="label11" HorizontalAlignment="Left" Margin="462,306,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label12" Content="File No :" HorizontalAlignment="Left" Margin="462,400,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label9_Copy" Content="Room No :" HorizontalAlignment="Left" Margin="462,306,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,-1.231"/>
+        <TextBox x:Name="txtRoomNo" HorizontalAlignment="Left" Height="22" Margin="590,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="10"/>
+        <TextBox x:Name="txtShelfNo" HorizontalAlignment="Left" Height="23" Margin="590,355,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="10"/>
+        <TextBox x:Name="txtFileNo" HorizontalAlignment="Left" Height="22" Margin="590,404,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="10"/>
+        <TextBox x:Name="txtBorrower" HorizontalAlignment="Left" Height="22" Margin="590,452,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="50" LostFocus="txtBorrower_LostFocus"/>
+        <CheckBox x:Name="chkReply" Content="Reply Document" HorizontalAlignment="Left" Margin="329,459,0,0" VerticalAlignment="Top"/>
+        <Image x:Name="imgDate" HorizontalAlignment="Left" Height="7" Margin="313,128,0,0" VerticalAlignment="Top" Width="10" Source="lib/star-16.png" RenderTransformOrigin="0.562,0.708" ToolTip="Can't leave blank"/>
+        <Image x:Name="imgTitle" HorizontalAlignment="Left" Height="7" Margin="313,180,0,0" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.562,0.708" ToolTip="Can't leave blank"/>
+        <Image x:Name="imgClass" HorizontalAlignment="Left" Height="7" Margin="313,222,0,0" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.562,0.708" ToolTip="Can't leave blank"/>
+        <Image x:Name="imgType" HorizontalAlignment="Left" Height="7" Margin="313,267,0,0" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.562,0.708" ToolTip="Can't leave blank"/>
+        <Image x:Name="imgState" HorizontalAlignment="Left" Height="7" Margin="313,316,0,0" VerticalAlignment="Top" Width="10" Source="lib/star-16.png" RenderTransformOrigin="0.562,0.708" ToolTip="Can't leave blank"/>
+        <Image x:Name="imgStatus" HorizontalAlignment="Left" Height="7" Margin="313,359,0,0" VerticalAlignment="Top" Width="10" Source="lib/star-16.png" RenderTransformOrigin="0.604,3.125" ToolTip="Can't leave blank"/>
+        <Image x:Name="image_Copy6" HorizontalAlignment="Left" Height="16" Margin="27,626,0,0" VerticalAlignment="Top" Width="16" Source="lib/red_star-16.png" RenderTransformOrigin="0.562,0.708" ToolTip="Can't leave blank"/>
+        <Label x:Name="label13" Content="Compulsory Fields" HorizontalAlignment="Left" Margin="42,624,0,0" VerticalAlignment="Top" Height="24" Width="122" FontFamily="Courier New" FontSize="11"/>
+        <Border BorderBrush="#FF5F6385" BorderThickness="0.6" HorizontalAlignment="Left" Height="24" Margin="23,622,0,0" VerticalAlignment="Top" Width="141"/>
+        <Image x:Name="imgSubDate" HorizontalAlignment="Left" Height="7" Margin="725,89,0,0" VerticalAlignment="Top" Width="10" Source="lib/star-16.png" RenderTransformOrigin="0.562,0.708" ToolTip="Can't leave blank"/>
+        <Image x:Name="imgSubmittedBy" HorizontalAlignment="Left" Height="7" Margin="725,128,0,0" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.562,0.708" ToolTip="Can't leave blank"/>
+        <Image x:Name="imgSubmittedTo" HorizontalAlignment="Left" Height="7" Margin="725,169,0,0" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.562,0.708" ToolTip="Can't leave blank"/>
+        <Image x:Name="imgSurBranch" HorizontalAlignment="Left" Height="7" Margin="725,210,0,0" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.562,0.708" ToolTip="Can't leave blank"/>
+        <Image x:Name="imgSudBranch" HorizontalAlignment="Left" Height="7" Margin="725,250,0,0" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.562,0.708" ToolTip="Can't leave blank"/>
+        <Image x:Name="imgDocNumber" HorizontalAlignment="Left" Height="7" Margin="313,87,0,0" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.562,0.708" ToolTip="Document Number Already Saved" Source="lib/asd.png"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Source="lib/save.ico" Margin="10,10,0,0"/>
+        <Image x:Name="imgBorrower" HorizontalAlignment="Left" Height="7" Margin="725,459,0,0" VerticalAlignment="Top" Width="10" Source="lib/star-16.png" RenderTransformOrigin="0.562,0.708" ToolTip="Can't leave blank"/>
+
+    </Grid>
+</Window>

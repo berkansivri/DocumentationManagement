@@ -1,0 +1,122 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:util="clr-namespace:DocumentationManagement.util"
+        xmlns:Properties="clr-namespace:DocumentationManagement.Properties" x:Class="DocumentationManagement.MainWindow"
+        Title="MainWindow" Height="667" Width="1114" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+
+    <Grid x:Name="anapencere" Margin="40,20,20,20">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="20" ShadowDepth="0"/>
+        </Grid.Effect>
+        <Grid.Background>
+            <ImageBrush ImageSource="lib/Picture1.png"/>
+        </Grid.Background>
+        <Grid x:Name="btnNew" MouseUp="btnNew_MouseUp" HorizontalAlignment="Left" Height="101" Margin="-31,88,0,0" VerticalAlignment="Top" Width="127" Cursor="Hand" ToolTip="Add a New Document">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="0"/>
+            </Grid.Effect>
+            <Grid.Background>
+                <ImageBrush ImageSource="lib/btn1.png" Stretch="Uniform"/>
+            </Grid.Background>
+            <Label Content="NEW" HorizontalAlignment="Left" Margin="0,64,0,0" VerticalAlignment="Top" Width="127" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
+        </Grid>
+        <Label x:Name="kapat" MouseUp="mainkapat_MouseUp" Content="X" Margin="0,4,7,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FFC3D69B" Foreground="Black" Cursor="Hand" HorizontalAlignment="Right" Width="49" FontWeight="Bold">
+            <Label.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="0"/>
+            </Label.Effect>
+        </Label>
+        <Grid x:Name="btnDuzenle" HorizontalAlignment="Left" Height="100" Margin="-31,214,0,0" VerticalAlignment="Top" Width="127" Cursor="Hand" MouseUp="btnDuzenle_MouseUp" ToolTip="Modify an Existing Document">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="0"/>
+            </Grid.Effect>
+            <Grid.Background>
+                <ImageBrush ImageSource="lib/btn2.png" Stretch="Uniform"/>
+            </Grid.Background>
+            <Label Content="MODIFY" HorizontalAlignment="Left" Margin="0,64,0,0" VerticalAlignment="Top" Width="127" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
+        </Grid>
+        <Grid x:Name="btnSil" HorizontalAlignment="Left" Height="100" Margin="-31,342,0,0" VerticalAlignment="Top" Width="127" Cursor="Hand" MouseUp="btnSil_MouseUp" ToolTip="Delete Selected Document">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="0"/>
+            </Grid.Effect>
+            <Grid.Background>
+                <ImageBrush ImageSource="lib/btn3.png" Stretch="Uniform"/>
+            </Grid.Background>
+            <Label Content="DELETE" HorizontalAlignment="Left" Margin="0,64,0,0" VerticalAlignment="Top" Width="127" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
+        </Grid>
+        <Grid x:Name="btnYolla" HorizontalAlignment="Left" Height="100" Margin="-31,472,0,0" VerticalAlignment="Top" Width="127" Cursor="Hand" ToolTip="Send E-mail" MouseLeftButtonUp="btnYolla_MouseLeftButtonUp">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="0"/>
+            </Grid.Effect>
+            <Grid.Background>
+                <ImageBrush ImageSource="lib/btn4.png" Stretch="Uniform"/>
+            </Grid.Background>
+            <Label Content="SEND" HorizontalAlignment="Left" Margin="0,64,0,0" VerticalAlignment="Top" Width="127" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
+        </Grid>
+
+        <ListView x:Name="listdoc" Height="484" Margin="128,88,16,0" VerticalAlignment="Top" IsSynchronizedWithCurrentItem="True" util:GridViewSort.AutoSort="True">
+            <ListView.Background>
+                <ImageBrush ImageSource="lib/bg.png"/>
+            </ListView.Background>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Name="cmModify" Header="Modify" Click="cmModify_Click"/>
+                    <MenuItem Name="cmDelete" Header="Delete" Click="CmDelete_Click"/>
+                    <Separator/>
+                    <MenuItem Name="cmDetails" Header="Show Details" Click="cmDetails_Click"/>
+                    <MenuItem Name="cmDigitalCopy" Header="Open Document File" Click="cmDigitalCopy_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding = "{Binding Id}" Header="Id" Width="Auto" util:GridViewSort.PropertyName="Id"/>
+                    <GridViewColumn DisplayMemberBinding = "{Binding Title}" Header="Title" Width="200" util:GridViewSort.PropertyName="Title"/>
+                    <GridViewColumn DisplayMemberBinding = "{Binding Datee, StringFormat='dd.MM.yyyy'}" Header="Date" Width="100" util:GridViewSort.PropertyName="Datee"/>
+                    <GridViewColumn DisplayMemberBinding = "{Binding Clas}" Header="Class" Width="150" util:GridViewSort.PropertyName="Clas"/>
+                    <GridViewColumn DisplayMemberBinding = "{Binding Type}" Header="Type" Width="150" util:GridViewSort.PropertyName="Type"/>
+                    <GridViewColumn DisplayMemberBinding = "{Binding State}" Header="State" Width="80" util:GridViewSort.PropertyName="State"/>
+                    <GridViewColumn DisplayMemberBinding = "{Binding DocNumber}" Header="Document Number" Width="120" util:GridViewSort.PropertyName="DocNumber"/>
+                    <GridViewColumn DisplayMemberBinding = "{Binding DigitalCopy}" Header="Digital Copy" Width="85" util:GridViewSort.PropertyName="DigitalCopy"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Label x:Name="minimize" MouseUp="minimize_MouseUp" Content="▬" Margin="0,4,68,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Medium" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Background="#FFC3D69B" Foreground="Black" Cursor="Hand" FontWeight="Bold" HorizontalAlignment="Right" Width="49" Padding="5,5,5,0" Height="31">
+            <Label.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="0"/>
+            </Label.Effect>
+        </Label>
+        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Height="23" Margin="196,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="287" TextChanged="txtSearch_TextChanged" Padding="40,0,0,0"/>
+        <ComboBox x:Name="cmbSearch" HorizontalAlignment="Left" Margin="488,60,0,0" VerticalAlignment="Top" Width="120" Height="23">
+            <ComboBoxItem Content="All" IsSelected="True"/>
+            <ComboBoxItem Content="Number"/>
+            <ComboBoxItem Content="Date"/>
+            <ComboBoxItem Content="Title"/>
+            <ComboBoxItem Content="Class"/>
+            <ComboBoxItem Content="Type"/>
+            <ComboBoxItem Content="State"/>
+            <ComboBoxItem Content="Author"/>
+            <ComboBoxItem Content="Status"/>
+            <ComboBoxItem Content="Description"/>
+        </ComboBox>
+        <Grid x:Name="btnSearch" HorizontalAlignment="Left" Height="23" Margin="613,60,0,0" VerticalAlignment="Top" Width="62" MouseUp="btnSearch_MouseUp">
+            <Grid.Background>
+                <ImageBrush ImageSource="lib/ara.png" Stretch="UniformToFill"/>
+            </Grid.Background>
+        </Grid>
+        <Grid MouseDown="Grid_MouseDown" HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="932" Background="#FFBFBFBF">
+            <Label Content="Document Management" HorizontalAlignment="Left" Margin="78,5,0,-6" VerticalAlignment="Top" Width="286" FontSize="20" Height="35" Padding="5,5,5,0"/>
+            <Image x:Name="image" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Source="1482373122_Product-documentation.ico" Margin="10,10,0,-17"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="21" Margin="197,61,0,0" VerticalAlignment="Top" Width="39">
+            <Grid.Background>
+                <ImageBrush ImageSource="lib/ara.png"/>
+            </Grid.Background>
+        </Grid>
+        <Label x:Name="BorrowListButton" Content="Borrowed Documents" Margin="0,604,33,-12" VerticalAlignment="Top" FontFamily="Tahoma" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FFC3D69B" Foreground="Black" Cursor="Hand" HorizontalAlignment="Right" Width="163" Height="35" MouseLeftButtonUp="BorrowListButton_MouseLeftButtonUp" IsEnabledChanged="BorrowListButton_IsEnabledChanged" FontWeight="Bold">
+            <Label.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="0"/>
+            </Label.Effect>
+        </Label>
+    </Grid>
+</Window>

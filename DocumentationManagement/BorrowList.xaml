@@ -1,0 +1,49 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:util="clr-namespace:DocumentationManagement.util" x:Name="frmBorrow" x:Class="DocumentationManagement.BorrowList"
+        Title="BorrowedList" Height="476" Width="658.5" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" WindowStartupLocation="CenterScreen" FontSize="14" Loaded="frmBorrow_Loaded">
+    <Grid x:Name="BorrowedList" Margin="20" RenderTransformOrigin="0.507,0.443">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="20" ShadowDepth="0"/>
+        </Grid.Effect>
+        <Grid.Background>
+            <ImageBrush ImageSource="lib/asd.png"/>
+        </Grid.Background>
+        <Label x:Name="kapat" Content="X" Margin="0,7,15,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Black" Cursor="Hand" FontWeight="Bold" HorizontalAlignment="Right" Width="30" Background="#FFC3D69B" MouseLeftButtonUp="kapat_MouseLeftButtonUp">
+            <Label.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="0"/>
+            </Label.Effect>
+        </Label>
+        <Grid HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="568" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+            <Grid.Background>
+                <ImageBrush/>
+            </Grid.Background>
+            <Label Content="&#x9;Borrowed Document List" HorizontalAlignment="Left" Margin="56,4,0,0" VerticalAlignment="Top" Width="508" FontSize="16" FontWeight="Bold">
+                <Label.Background>
+                    <ImageBrush/>
+                </Label.Background>
+            </Label>
+        </Grid>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Source="lib/BorrowList.ico" Margin="10,10,0,0"/>
+        <ListView x:Name="listdoc" Height="328" Margin="22,67,27,0" VerticalAlignment="Top" IsSynchronizedWithCurrentItem="True" util:GridViewSort.AutoSort="True" MouseDoubleClick="listdoc_MouseDoubleClick">
+            <ListView.Background>
+                <ImageBrush ImageSource="lib/bg.png"/>
+            </ListView.Background>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding = "{Binding Id}" Header="Id" util:GridViewSort.PropertyName="Id"/>
+                    <GridViewColumn DisplayMemberBinding = "{Binding Title}" Header="Title" Width="200" util:GridViewSort.PropertyName="Title"/>
+                    <GridViewColumn DisplayMemberBinding = "{Binding Clas}" Header="Class" Width="100" util:GridViewSort.PropertyName="Clas"/>
+                    <GridViewColumn DisplayMemberBinding = "{Binding Type}" Header="Type" Width="100" util:GridViewSort.PropertyName="Type"/>
+                    <GridViewColumn DisplayMemberBinding = "{Binding Borrower}" Header="Borrowed" Width="150" util:GridViewSort.PropertyName="Borrower"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label x:Name="btnOK" Content="OK" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13" Cursor="Hand" Margin="236,403,0,0" Background="#FFC3D69B" FontWeight="Bold" MouseLeftButtonUp="kapat_MouseLeftButtonUp"/>
+        <Label x:Name="btnBorrowNew" Content="NEW" HorizontalAlignment="Left" VerticalAlignment="Top" Width="42" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13" Cursor="Hand" Margin="-20,116,0,0" Background="#FFC3D69B" FontWeight="Bold" MouseLeftButtonUp="btnBorrowNew_MouseLeftButtonUp" Height="34"/>
+        <Label x:Name="btnBorrowEdit" Content="EDIT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="42" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13" Cursor="Hand" Margin="-20,199,0,0" Background="#FFC3D69B" FontWeight="Bold" Height="34" MouseLeftButtonUp="btnBorrowEdit_MouseLeftButtonUp"/>
+        <Label x:Name="btnBorrowDelete" Content="DEL" HorizontalAlignment="Left" VerticalAlignment="Top" Width="42" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13" Cursor="Hand" Margin="-20,285,0,0" Background="#FFC3D69B" FontWeight="Bold" MouseLeftButtonUp="btnBorrowDelete_MouseLeftButtonUp" Height="34"/>
+        <Grid HorizontalAlignment="Left" Height="100" Margin="236,38,0,0" VerticalAlignment="Top" Width="100"/>
+    </Grid>
+</Window>
